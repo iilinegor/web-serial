@@ -1,0 +1,16 @@
+{
+  "name": "1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wsServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node wsServer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws" : "*",
+    "serialport" : "*"
+  }
+}

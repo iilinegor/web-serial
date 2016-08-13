@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Arduino - Web Edition</title>
+    <script src="/browser.min.js"></script>
+    <script src="/react.js"></script>
+    <script src="/react-dom.js"></script>
+	<style>
+	
+html, body {
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	background-color: #272822;
+	font-family: "Courier new";
+}
+
+#content {
+	padding: 0px;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	margin: 0px;
+}
+
+.container {
+	width: 600px;
+	margin: 100px auto;
+	color: #ffffff;
+}		
+
+input {
+	width: 75%;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	border-radius: 5px;
+	background-color: #272822;
+	margin-right: 10px;
+	padding: 5px 15px;
+	font-size: 16px;
+	font-family: "Courier new";
+}
+
+.cash {
+	min-height: 300px;
+}
+
+.cash-item:before{
+	content: "> ";
+}
+
+button {
+	border: none;
+	background-color: #a6b42e;
+	border-radius: 5px;
+	padding: 8px 10px;
+}
+
+	</style>
+
+</head>
+<body >
+	<div id="content"></div>
+	<script type="text/babel" src="./web.js"></script>
+</body>
+</html>
