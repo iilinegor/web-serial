@@ -3,7 +3,7 @@ var WebSocketServer = require('ws').Server;
 
 
 var SERVER_PORT = 1010;
-var wss = new WebSocketServer({host: '192.168.100.3', port: SERVER_PORT}); 
+var wss = new WebSocketServer({port: SERVER_PORT}); 
 var connections = new Array;  
 
     portName = process.argv[2]; 
