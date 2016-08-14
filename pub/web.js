@@ -1,4 +1,4 @@
-var ws = new WebSocket('ws://localhost:1010');
+var ws = new WebSocket('ws://192.168.100.3:1010');
 
 var msg;
 
@@ -44,17 +44,22 @@ var Term = React.createClass({
 	// },
 
 	componentDidMount() {
-		ws.addEventListener('onmessage', this.handleChange);
+		ws.addEventListener('message', () => (this._getMessage()));
 	},
 
-	handleChange(data) {
+	_getMessage() {
 		let { cash } = this.state;
 		if (msg !== "") {
 			cash.push(msg);
 			msg = "";
 		};
+		this.setState({cash : cash});
+	},
+
+	handleChange(data) {
+		this._getMessage();
 		console.log(data.target.value);
-		this.setState({field : data.target.value, cash : cash});
+		this.setState({field : data.target.value});
 	},
 
 	handleMessage(data) {
