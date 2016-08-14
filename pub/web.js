@@ -1,6 +1,6 @@
 var ws = new WebSocket('ws://localhost:1010');
 
-var msg = "";
+var msg;
 
 ws.onopen = () => {
   ws.send('Hi, COM!');
@@ -9,10 +9,16 @@ ws.onopen = () => {
 ws.onmessage = (e) => {
   console.log(e.data);
   msg = e.data;
+
+ //  ReactDOM.render(
+	//   <Term />,
+	//   document.getElementById('content')
+	// );
 };
 
 ws.onerror = (e) => {
   console.log(e.message);
+  msg = e.data;
 };
 
 ws.onclose = (e) => {
@@ -25,6 +31,20 @@ var Term = React.createClass({
 		return {
 			cash: []
 		};
+	},
+	// componentWillMount(){
+	// 	let { cash } = this.state;
+	// 	msg.callback = (data) => {
+	// 		if (data !== "") {
+	// 		cash.push(data);
+	// 		data = "";
+	// 	};
+	//     this.setState({cash : cash});     
+	//   };
+	// },
+
+	componentDidMount() {
+		ws.addEventListener('onmessage', this.handleChange);
 	},
 
 	handleChange(data) {
