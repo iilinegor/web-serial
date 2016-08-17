@@ -9,11 +9,6 @@ ws.onopen = () => {
 ws.onmessage = (e) => {
   console.log(e.data);
   msg = e.data;
-
- //  ReactDOM.render(
-	//   <Term />,
-	//   document.getElementById('content')
-	// );
 };
 
 ws.onerror = (e) => {
@@ -26,22 +21,11 @@ ws.onclose = (e) => {
 };
 
 var Term = React.createClass({
-
 	getInitialState(){
 		return {
 			cash: []
 		};
 	},
-	// componentWillMount(){
-	// 	let { cash } = this.state;
-	// 	msg.callback = (data) => {
-	// 		if (data !== "") {
-	// 		cash.push(data);
-	// 		data = "";
-	// 	};
-	//     this.setState({cash : cash});     
-	//   };
-	// },
 
 	componentDidMount() {
 		ws.addEventListener('message', () => (this._getMessage()));
@@ -70,7 +54,7 @@ var Term = React.createClass({
 		let { cash, field } = this.state;
 		ws.send(field);
 		cash.push(field);
-		this.setState({cash : cash});
+		this.setState({cash : "> " + cash});
 		this._input.value = "";
 	},
 
