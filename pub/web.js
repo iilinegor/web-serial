@@ -54,7 +54,7 @@ var Term = React.createClass({
 		let { cash, field } = this.state;
 		ws.send(field);
 		cash.push(field);
-		this.setState({cash : "> " + cash});
+		this.setState({cash : cash});
 		this._input.value = "";
 	},
 
