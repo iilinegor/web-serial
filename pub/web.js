@@ -54,7 +54,7 @@ var Term = React.createClass({
 		let { cash, field } = this.state;
 		ws.send(field);
 		cash.push(field);
-		this.setState({cash : cash});
+		this.setState({cash : "> " + cash});
 		this._input.value = "";
 	},
 
@@ -70,6 +70,7 @@ var Term = React.createClass({
 			for (let c of this.state.cash)
 				cashList.push(<div className="cash-item">{c}</div>);
 		return <div className="container">
+					<h2>Serial Port Web Interface</h2>
 					<div className="cash"> {cashList} </div>
 					<input type="text" onChange={this.handleChange} onKeyPress={this._handleKeyPress} ref={(c) => this._input = c}/>
 					<button onClick={this.handleSubmit}>Отправить</button>
